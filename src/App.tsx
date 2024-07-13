@@ -1,19 +1,10 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View, Text, Button, StyleSheet} from 'react-native';
 import axios from 'axios';
+import {useCatFact} from './useCatFact';
 
 const App = () => {
-  const [fact, setFact] = useState('');
-
-  const fetchCatFact = async () => {
-    try {
-      const response = await axios.get('https://catfact.ninja/fact');
-      setFact(response.data.fact);
-    } catch (error) {
-      console.error('Error fetching the cat fact:', error);
-      setFact('Could not fetch a cat fact. Please try again.');
-    }
-  };
+  const {fact, fetchCatFact} = useCatFact();
 
   return (
     <SafeAreaView style={styles.container}>
