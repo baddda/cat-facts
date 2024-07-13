@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect, useCallback} from 'react';
 
-export function useCatFact() {
+export function useCatFact(): [string, () => void] {
   const [fact, setFact] = useState<string | null>(null);
 
   const fetchCatFact = useCallback(async () => {
@@ -19,5 +19,5 @@ export function useCatFact() {
     fetchCatFact();
   }, []);
 
-  return {fact: fact ?? 'Loading...', fetchCatFact};
+  return [fact ?? 'Loading...', fetchCatFact];
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useCatFact} from './useCatFact';
 
 const App = () => {
-  const {fact, fetchCatFact} = useCatFact();
+  const [fact, fetchCatFact] = useCatFact();
 
   return (
     <SafeAreaView style={styles.container}>
